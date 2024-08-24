@@ -65,13 +65,24 @@ questions = [
   "Who do you miss?",
 ];
 
-seen = {};
+let seen = {};
+let previous = "";
 
 header = document.getElementById("header")
 header.innerHTML = `Question time: ${Object.keys(seen).length}/${questions.length}`
+
+let previousButton = document.getElementById("previous-button");
+if (previous == "") {
+  previousButton.style.display = "none";
+}
+previousButton.addEventListener("click", () => {
+  console.log(previous);
+});
+
 button = document.getElementById("question-button")
 button.addEventListener("click", () => {
 
+  previousButton.style.display = "block";
   if (Object.keys(seen).length == questions.length) {
     button.innerHTML = "No more questions"
     return;
@@ -82,8 +93,9 @@ button.addEventListener("click", () => {
   }
   if (seen[index] == undefined) {
     qEl = document.getElementById("question");
+    previous = qEl.innerHTML;
     seen[index] = true;
-    qEl.innerHTML = `<p>${questions[index]}</p>`
+    qEl.innerHTML = `${questions[index]}`
     q = document.getElementById(`question-${index}`)
     if (q != undefined) {
       q.classList.add("cross_out");

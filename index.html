@@ -1,29 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="main.css">
   <title>Question Time</title>
 </head>
+
 <body>
-<div class="flex_container">
-  <h1 id="header">Question time</h1>
-  <div>
-    <button id="question-button" class="action__button">Next Question</button>
+  <div class="flex_container">
+    <h1 id="header">Question time</h1>
+    <div>
+      <p id="question"></p>
+    </div>
+    <div style="display: flex; gap: 10px">
+      <div>
+        <button id="question-button" class="action__button">Next Question</button>
+      </div>
+      <div>
+        <button id="reset" class="action__button">Reset</button>
+      </div>
+    </div>
+    <div>
+      <h2 style="display: inline" id="list_header" class="non-selectable">All Questions </h2>
+      <p style="display: inline-block" id="arrow">&#x27A4;</p>
+      <ul id="question-list">
+      </ul>
+    </div>
   </div>
-  <div>
-    <p id="question"></p>
-  </div>
-  <div>
-    <button id="reset" class="action__button">Reset</button>
-  </div>
-  <div>
-    <h2 id="list_header" class="non-selectable">All Questions</h2>
-    <ul id="question-list">
-    </ul>
-  </div>
-</div>
 </body>
 <script src="main.js" type="text/javascript" defer></script>
+
 </html>

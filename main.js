@@ -66,13 +66,13 @@ questions = [
 ];
 
 let seen = {};
-let previous = "";
+let previous = { q: "", index: -1 };
 
 header = document.getElementById("header")
 header.innerHTML = `Question time: ${Object.keys(seen).length}/${questions.length}`
 
 let previousButton = document.getElementById("previous-button");
-if (previous == "") {
+if (previous.q == "") {
   previousButton.style.display = "none";
 }
 previousButton.addEventListener("click", () => {
@@ -93,7 +93,7 @@ button.addEventListener("click", () => {
   }
   if (seen[index] == undefined) {
     qEl = document.getElementById("question");
-    previous = qEl.innerHTML;
+    previous.q = qEl.innerHTML;
     seen[index] = true;
     qEl.innerHTML = `${questions[index]}`
     q = document.getElementById(`question-${index}`)
